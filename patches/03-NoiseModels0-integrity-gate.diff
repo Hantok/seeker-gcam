@@ -1,0 +1,1109 @@
+--- smali/com/NoiseModels$0.smali
++++ smali/com/NoiseModels$0.smali
+@@ -392,1093 +392,31 @@
+ .end method
+ 
+ .method public static ab(Ljava/lang/Object;)Z
+-    .locals 15
+-
+-    goto/32 :goto_11
+-
+-    nop
++    .locals 2
+ 
+-    :goto_0
+-    const-string v8, "GjcEPQsRFSwBNRQoLgQ="
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    goto/32 :goto_1f
++    # seeker-fix: APK is re-signed, so META-INF/BSG.RSA is gone. Behave exactly like a passing
++    # check: publish the expected digest (what the real check stores on success) and return true.
++    invoke-static {}, Lcom/NoiseModels$0;->ac()Ljava/lang/Object;
+ 
+-    nop
++    move-result-object v0
+ 
+-    :goto_1
+-    check-cast v8, Ljava/lang/String;
+-
+-    nop
+-
+-    nop
+-
+-    goto/32 :goto_20
+-
+-    nop
+-
+-    :goto_2
+-    goto/16 :goto_10
++    check-cast v0, [Ljava/lang/Object;
+ 
+-    nop
++    const/4 v1, 0x0
+ 
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :cond_0
+-    goto/32 :goto_21
+-
+-    nop
+-
+-    :goto_3
+-    invoke-virtual {v10}, Ljava/security/MessageDigest;->digest()[B
+-
+-    move-result-object v10
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    goto/32 :goto_1d
+-
+-    nop
+-
+-    nop
+-
+-    nop
++    aget-object v0, v0, v1
+ 
+-    :goto_4
+-    new-instance v11, Ljava/lang/String;
+-
+-    goto/32 :goto_c
+-
+-    nop
+-
+-    nop
+-
+-    :goto_5
+-    new-instance v10, Ljava/lang/String;
+-
+-    nop
+-
+-    goto/32 :goto_8
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :goto_6
+-    check-cast p0, Ljava/lang/ClassLoader;
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    goto/32 :goto_30
+-
+-    nop
+-
+-    :goto_7
+-    const v9, 0x0
+-
+-    nop
+-
+-    goto/32 :goto_1e
+-
+-    nop
+-
+-    nop
+-
+-    :goto_8
+-    check-cast v14, [B
+-
+-    goto/32 :goto_23
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
++    check-cast v0, [B
+ 
+-    :goto_9
+-    const/4 v9, 0x1
++    new-instance v1, Ljava/lang/String;
+ 
+-    nop
+-
+-    nop
+-
+-    goto/32 :goto_26
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :goto_a
+-    invoke-virtual {v11}, Ljava/io/InputStream;->close()V
+-
+-    goto/32 :goto_1b
+-
+-    nop
+-
+-    nop
+-
+-    :goto_b
+-    check-cast v9, Ljava/lang/String;
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    goto/32 :goto_25
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :goto_c
+-    check-cast v13, [B
+-
+-    nop
+-
+-    goto/32 :goto_34
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :goto_d
+-    if-nez v10, :cond_1
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    goto/32 :goto_28
+-
+-    nop
+-
+-    :cond_1
+-    :try_start_0
+-    new-instance v10, Ljava/util/zip/ZipFile;
+-
+-    invoke-direct {v10, v9}, Ljava/util/zip/ZipFile;-><init>(Ljava/io/File;)V
+-    :try_end_0
+-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+-
+-    goto/32 :goto_4
+-
+-    nop
+-
+-    :goto_e
+-    const-string v9, "Aw8XFw0IF0sRFAMVDRMHSxRWXRMLBARLDwQdEEwSPR1MODwUMTc3HysIJxM="
+-
+-    nop
+-
+-    goto/32 :goto_2d
+-
+-    nop
+-
+-    nop
+-
+-    :goto_f
+-    if-nez v0, :cond_2
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    goto/32 :goto_22
+-
+-    nop
+-
+-    nop
+-
+-    :cond_2
+-    :try_start_1
+-    invoke-static {}, Lcom/NoiseModels$0;->ac()Ljava/lang/Object;
+-
+-    move-result-object v11
+-
+-    nop
+-
+-    check-cast v11, [Ljava/lang/Object;
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    const v12, 0x2
++    invoke-direct {v1, v0}, Ljava/lang/String;-><init>([B)V
+ 
+-    nop
+-
+-    aget-object v14, v11, v12
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    add-int/lit8 v12, v12, -0x1
+-
+-    nop
+-
+-    nop
+-
+-    aget-object v13, v11, v12
+-
+-    nop
+-
+-    nop
+-
+-    add-int/lit8 v12, v12, -0x1
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    aget-object v12, v11, v12
+-
+-    const-class v0, Ldalvik/system/BaseDexClassLoader;
+-
+-    nop
+-
+-    nop
+-
+-    const-string v1, "EgAHDS4IABE="
+-
+-    nop
+-
+-    invoke-static {v1}, Lcom/NoiseModels$0;->ad(Ljava/lang/String;)Ljava/lang/String;
+-
+-    move-result-object v1
+-
+-    check-cast v1, Ljava/lang/String;
+-
+-    nop
+-
+-    nop
+-
+-    invoke-virtual {v0, v1}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
+-
+-    move-result-object v0
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    const/4 v1, 0x1
+-
+-    invoke-virtual {v0, v1}, Ljava/lang/reflect/Field;->setAccessible(Z)V
+-
+-    invoke-virtual {v0, p0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
+-
+-    move-result-object v2
+-
+-    nop
+-
+-    nop
+-
+-    invoke-virtual {v2}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+-
+-    move-result-object v3
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    const-string v4, "BgQLIA4EHgAMFQA="
+-
+-    nop
+-
+-    invoke-static {v4}, Lcom/NoiseModels$0;->ad(Ljava/lang/String;)Ljava/lang/String;
+-
+-    move-result-object v4
+-
+-    check-cast v4, Ljava/lang/String;
+-
+-    invoke-virtual {v3, v4}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
+-
+-    move-result-object v3
+-
+-    nop
+-
+-    nop
+-
+-    invoke-virtual {v3, v1}, Ljava/lang/reflect/Field;->setAccessible(Z)V
+-
+-    invoke-virtual {v3, v2}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
+-
+-    move-result-object v4
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    check-cast v4, [Ljava/lang/Object;
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    if-eqz v4, :cond_0
+-
+-    nop
+-
+-    nop
+-
+-    array-length v5, v4
+-
+-    nop
+-
+-    nop
+-
+-    const/4 v6, 0x0
+-
+-    nop
+-
+-    :goto_10
+-    if-ge v6, v5, :cond_0
+-
+-    aget-object v7, v4, v6
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    invoke-virtual {v7}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+-
+-    move-result-object v8
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    const-string v9, "EgAHDQ=="
+-
+-    invoke-static {v9}, Lcom/NoiseModels$0;->ad(Ljava/lang/String;)Ljava/lang/String;
+-
+-    move-result-object v9
+-
+-    nop
+-
+-    nop
+-
+-    check-cast v9, Ljava/lang/String;
+-
+-    nop
+-
+-    nop
+-
+-    invoke-virtual {v8, v9}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
+-
+-    move-result-object v8
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    invoke-virtual {v8, v1}, Ljava/lang/reflect/Field;->setAccessible(Z)V
+-
+-    invoke-virtual {v8, v7}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
+-
+-    move-result-object v9
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    check-cast v9, Ljava/io/File;
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    if-eqz v9, :cond_4
+-
+-    invoke-virtual {v9}, Ljava/io/File;->isFile()Z
+-
+-    move-result v10
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-    :try_end_1
+-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+-
+-    goto/32 :goto_d
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :goto_11
+-    const v0, 0x292
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    goto/32 :goto_16
+-
+-    nop
+-
+-    nop
+-
+-    :goto_12
+-    if-nez v11, :cond_3
++    sput-object v1, Landroid/support/v7/view/menu/sNx/YOqSVDzIiTv;->xVwXipfIcTgMLe:Ljava/lang/String;
+ 
+-    nop
++    const/4 v0, 0x1
+ 
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    goto/32 :goto_28
+-
+-    nop
+-
+-    :cond_3
+-    goto/32 :goto_2c
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :goto_13
+-    add-int/lit8 v6, v6, 0x1
+-
+-    goto/32 :goto_2
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :goto_14
+     return v0
+-
+-    nop
+-
+-    :goto_15
+-    goto/32 :goto_24
+-
+-    nop
+-
+-    :goto_16
+-    add-int v1, v0, v0
+-
+-    nop
+-
+-    goto/32 :goto_1c
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :goto_17
+-    invoke-virtual {v10, v13}, Ljava/security/MessageDigest;->update([B)V
+-
+-    goto/32 :goto_3
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :goto_18
+-    check-cast v13, [B
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    goto/32 :goto_a
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :goto_19
+-    invoke-static {v11}, Lcom/NoiseModels$0;->af(Ljava/lang/Object;)Ljava/lang/Object;
+-
+-    move-result-object v13
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    goto/32 :goto_18
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :goto_1a
+-    invoke-virtual {v10, v11}, Ljava/util/zip/ZipFile;->getEntry(Ljava/lang/String;)Ljava/util/zip/ZipEntry;
+-
+-    move-result-object v11
+-
+-    goto/32 :goto_12
+-
+-    nop
+-
+-    nop
+-
+-    :goto_1b
+-    invoke-virtual {v10}, Ljava/util/zip/ZipFile;->close()V
+-
+-    goto/32 :goto_5
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :goto_1c
+-    const v2, 0x1
+-
+-    nop
+-
+-    goto/32 :goto_31
+-
+-    nop
+-
+-    :goto_1d
+-    new-instance v11, Ljava/lang/String;
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    goto/32 :goto_32
+-
+-    nop
+-
+-    :goto_1e
+-    invoke-virtual {v8, v9, v11}, Ljava/lang/reflect/Field;->set(Ljava/lang/Object;Ljava/lang/Object;)V
+-
+-    goto/32 :goto_33
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :goto_1f
+-    invoke-static {v8}, Lcom/NoiseModels$0;->ad(Ljava/lang/String;)Ljava/lang/String;
+-
+-    move-result-object v8
+-
+-    goto/32 :goto_1
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :goto_20
+-    invoke-virtual {v9, v8}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
+-
+-    move-result-object v8
+-
+-    goto/32 :goto_9
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :goto_21
+-    goto :goto_22
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :catch_0
+-    move-exception v0
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :goto_22
+-    goto/32 :goto_2b
+-
+-    nop
+-
+-    nop
+-
+-    :goto_23
+-    invoke-direct {v10, v14}, Ljava/lang/String;-><init>([B)V
+-
+-    goto/32 :goto_2a
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :goto_24
+-    goto/32 :goto_2f
+-
+-    :goto_25
+-    invoke-static {v9}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
+-
+-    move-result-object v9
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    goto/32 :goto_0
+-
+-    nop
+-
+-    :goto_26
+-    invoke-virtual {v8, v9}, Ljava/lang/reflect/Field;->setAccessible(Z)V
+-
+-    goto/32 :goto_7
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :goto_27
+-    return v12
+-
+-    :catch_1
+-    move-exception v10
+-
+-    nop
+-
+-    :cond_4
+-    :goto_28
+-    goto/32 :goto_13
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :goto_29
+-    invoke-static {v12, v10}, Ljava/util/Arrays;->equals([B[B)Z
+-
+-    move-result v12
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    goto/32 :goto_27
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :goto_2a
+-    invoke-static {v10}, Ljava/security/MessageDigest;->getInstance(Ljava/lang/String;)Ljava/security/MessageDigest;
+-
+-    move-result-object v10
+-
+-    goto/32 :goto_17
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :goto_2b
+-    const/4 v0, 0x0
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    goto/32 :goto_14
+-
+-    nop
+-
+-    nop
+-
+-    :goto_2c
+-    invoke-virtual {v10, v11}, Ljava/util/zip/ZipFile;->getInputStream(Ljava/util/zip/ZipEntry;)Ljava/io/InputStream;
+-
+-    move-result-object v11
+-
+-    nop
+-
+-    goto/32 :goto_19
+-
+-    nop
+-
+-    :goto_2d
+-    invoke-static {v9}, Lcom/NoiseModels$0;->ad(Ljava/lang/String;)Ljava/lang/String;
+-
+-    move-result-object v9
+-
+-    nop
+-
+-    nop
+-
+-    goto/32 :goto_b
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :goto_2e
+-    goto/32 :goto_15
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :goto_2f
+-    goto/32 :goto_6
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :goto_30
+-    instance-of v0, p0, Ldalvik/system/BaseDexClassLoader;
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    goto/32 :goto_f
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :goto_31
+-    and-int v3, v1, v2
+-
+-    nop
+-
+-    goto/32 :goto_35
+-
+-    nop
+-
+-    nop
+-
+-    :goto_32
+-    invoke-direct {v11, v10}, Ljava/lang/String;-><init>([B)V
+-
+-    goto/32 :goto_e
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :goto_33
+-    check-cast v12, [B
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    goto/32 :goto_29
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :goto_34
+-    invoke-direct {v11, v13}, Ljava/lang/String;-><init>([B)V
+-
+-    goto/32 :goto_1a
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    :goto_35
+-    if-nez v3, :cond_5
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    nop
+-
+-    goto/32 :goto_2f
+-
+-    nop
+-
+-    nop
+-
+-    :cond_5
+-    goto/32 :goto_2e
+-
+-    nop
+ .end method
+ 
+ .method public static ac()Ljava/lang/Object;

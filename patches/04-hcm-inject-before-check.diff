@@ -1,0 +1,14 @@
+--- smali/hcm.smali
++++ smali/hcm.smali
+@@ -1102,6 +1102,11 @@
+ .method protected onCreate(Landroid/os/Bundle;)V
+     .locals 4
+ 
++    # seeker-fix: BSG's "unsupported device" check below reads this.q before the injector that sets it
++    # runs; activities started by intent (e.g. double-press power -> STILL_IMAGE_CAMERA) NPE'd here.
++    # The injector is idempotent (guarded by this.u), so run it first.
++    invoke-direct {p0}, Lhcm;->m7b4e76451b9fdf4d()V
++
+     goto/32 :goto_9
+ 
+     nop

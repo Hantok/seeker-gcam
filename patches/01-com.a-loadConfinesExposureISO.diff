@@ -1,0 +1,16 @@
+--- smali/com/a.smali
++++ smali/com/a.smali
+@@ -190519,6 +190519,13 @@
+ 
+     move-result-object v1
+ 
++    # seeker-fix: lenses without RAW (front, ultrawide) have no POST_RAW_SENSITIVITY_BOOST_RANGE
++    if-nez v1, :goto_a
++
++    const/high16 v1, 0x3f800000    # 1.0f = no post-RAW boost
++
++    goto/32 :goto_14
++
+     nop
+ 
+     nop
